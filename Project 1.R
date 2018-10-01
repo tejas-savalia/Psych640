@@ -27,7 +27,7 @@ health_score = doctor_data[5]
 #Calculate summaries for these variables
 summary_health_score = summary(health_score)
 summary_access = summary(access)
-summary_num_visits = summary(num_vists)
+summary_num_visits = summary(num_visits)
 summary_num_children = summary(num_children)
 
 
@@ -39,7 +39,7 @@ boxplot(num_visits, 'Number of Visits')
 boxplot(num_children, 'Number of Children')
 
 #histograms
-par(mfrpw=c(1, 1))
+par(mfrow=c(1, 1))
 hist(health_score$health, xlab = "Health Score", main = "Health Scores", col = "grey")
 hist(access$access, xlab = "Access to Healthcare", main = "Access to Healthcare", col = "grey")
 hist(num_visits$doctor, xlab = "Number of Doctor Visits", main = "Number of Visits", col = "grey")
@@ -98,5 +98,14 @@ z_health_child_2
 
 
 ##Skewness
+library(e1071)
+health_score_skew = skewness(health_score$health)
+access_skew = skewness(access$access)
+num_child_skew = skewness(num_children$children)
+num_visits_skew = skewness(num_visits$doctor)
 
+health_score_kurtosis = kurtosis(health_score$health)
+access_kurtosis = kurtosis(access$access)
+num_child_kurtosis = kurtosis(num_children$children)
+num_visits_kurtosis = kurtosis(num_visits$doctor)
 
